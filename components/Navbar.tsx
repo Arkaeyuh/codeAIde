@@ -5,25 +5,34 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <nav className="w-full bg-gray-200 p-4 shadow-sm flex items-center">
+    <nav className="w-full bg-gray-800 p-4 shadow-md flex items-center justify-between">
       {/* Logo or brand name */}
-      <div className="mr-6 font-bold text-xl">
+      <div className="text-white font-bold text-xl">
         <Link href="/">AI Learning</Link>
       </div>
 
       {/* Navigation links */}
       <ul className="flex space-x-4">
         <li>
-          <Link href="/" className="hover:text-blue-500">
+          <Link href="/" className="text-white hover:text-blue-400">
             Home
           </Link>
         </li>
         <li>
-          <Link href="/chat" className="hover:text-blue-500">
+          <Link href="/chat" className="text-white hover:text-blue-400">
             Chat
           </Link>
         </li>
-        {/* Add more links as needed, e.g. Lessons, About, etc. */}
+        <li>
+          <Link href="/about" className="text-white hover:text-blue-400">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link href="/contact" className="text-white hover:text-blue-400">
+            Contact
+          </Link>
+        </li>
       </ul>
     </nav>
   );

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function HomePage() {
   return (
     <section className="flex flex-col items-center justify-center h-screen">
@@ -5,6 +7,11 @@ export default function HomePage() {
       <p className="mt-4 text-gray-700">
         Ask coding questions, complete tutorials, and learn at your own pace.
       </p>
+      <Link href="/login">
+        <button className="mt-8 px-6 py-3 bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600">
+          Get Started
+        </button>
+      </Link>
     </section>
   );
 }
