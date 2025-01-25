@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import React from "react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -26,7 +27,7 @@ export default function LoginPage() {
       setError("Invalid email or password");
     } else {
       // If successful, navigate to homepage or chat
-      router.push("/");
+      router.push("/learn");
     }
   }
 
