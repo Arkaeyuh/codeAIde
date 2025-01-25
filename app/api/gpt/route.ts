@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     }
 
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo", // or "gpt-4"
+      model: "gpt-4o-mini", // or "gpt-4"
       messages: [
         { role: "system", content: "You are a helpful coding assistant." },
         { role: "user", content: prompt },
