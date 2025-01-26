@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function LoginPage() {
+export default function LoginPage() {                                  
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
