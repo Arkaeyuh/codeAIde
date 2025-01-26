@@ -41,7 +41,7 @@ export default function ChatClient() {
   };
 
   return (
-    <div className="p-4 max-w-2xl mx-auto mt-8">
+    <div className="p-4 max-w-2xl mx-auto mt-3">
       <div className="flex flex-col space-y-4 mb-4 h-96 overflow-y-auto border p-4 rounded-lg custom-scrollbar">
         {messages.map((message, index) => (
           <div
@@ -75,5 +75,6 @@ export default function ChatClient() {
         </button>
       </form>
     </div>
+
   );
 }
