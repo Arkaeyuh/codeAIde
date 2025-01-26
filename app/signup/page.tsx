@@ -1,39 +1,39 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function LoginPage() {                                  
+export default function SignUpPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setError("");
 
-    // Use next-auth's signIn function
-    const result = await signIn("credentials", {
-      redirect: false, // We'll handle redirection manually
-      email,
-      password,
-    });
+    // Simple validation for matching passwords
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
 
-    if (result?.error) {
-      // If credentials are wrong or next-auth responded with an error
-      setError("Invalid email or password");
-    } else {
-      // If successful, navigate to homepage or chat
-      router.push("/learn");
+    // Simulate sign-up process (replace this with API call)
+    try {
+      // Simulated success
+      console.log("User signed up:", { email, password });
+      router.push("/login"); // Redirect to login page
+    } catch (err) {
+      setError("Failed to sign up. Please try again later.");
     }
   }
 
-  function handleSignUp() {
-    router.push("/signup");
+  function handleBackToLogin() {
+    router.push("/login");
   }
 
   return (
@@ -45,7 +45,7 @@ export default function LoginPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-black text-2xl mb-4 font-bold text-center">Login</h1>
+        <h1 className="text-black text-2xl mb-4 font-bold text-center">Sign Up</h1>
         {error && (
           <motion.div
             className="mb-4 text-red-500 text-sm"
@@ -62,7 +62,7 @@ export default function LoginPage() {
           </label>
           <motion.input
             className="text-black w-full border p-2 rounded"
-            type="text"
+            type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -72,7 +72,7 @@ export default function LoginPage() {
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold text-black" htmlFor="password">
+          <label className="text-black block mb-1 font-semibold" htmlFor="password">
             Password
           </label>
           <motion.input
@@ -86,22 +86,40 @@ export default function LoginPage() {
             transition={{ duration: 0.2 }}
           />
         </div>
+        <div className="mb-4">
+          <label
+            className="text-black block mb-1 font-semibold"
+            htmlFor="confirmPassword"
+          >
+            Confirm Password
+          </label>
+          <motion.input
+            className="text-black w-full border p-2 rounded"
+            type="password"
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder="password123"
+            whileFocus={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          />
+        </div>
         <motion.button
           type="submit"
           className="w-full bg-blue-600 text-white p-2 font-semibold rounded hover:bg-blue-700"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Continue
+          Sign Up
         </motion.button>
         <motion.button
           type="button"
-          onClick={handleSignUp}
+          onClick={handleBackToLogin}
           className="w-full bg-gray-600 text-white p-2 font-semibold rounded mt-2 hover:bg-gray-700"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Sign Up
+          Back to Login
         </motion.button>
       </motion.form>
     </div>
