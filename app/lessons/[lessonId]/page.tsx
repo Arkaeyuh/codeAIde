@@ -49,45 +49,47 @@ export default function LessonDetail({ params }: { params: { lessonId: string } 
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-2">{lesson.title}</h1>
-      <p className="mb-4 whitespace-pre-wrap">{lesson.content}</p>
+    <section className="relative flex flex-col items-center justify-center min-h-screen px-6 bg-gradient-to-b from-black to-gray-900 text-black pt-10">
+      <div className="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold mb-5 text-white">{lesson.title}</h1>
+        <p className="text-gray-400 mb-4 whitespace-pre-wrap">{lesson.content}</p>
 
-      <div className="mb-4">
-        <label className="block mb-2 font-semibold">Select Language:</label>
-        <select
-          className="border p-2 rounded"
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
-        >
-          <option value="python">Python</option>
-          <option value="java">Java</option>
-          {/* add more languages if you have skeletons */}
-        </select>
-      </div>
-
-      <div className="mb-4">
-        <label className="block mb-2 font-semibold">Your Code:</label>
-        <textarea
-          className="w-full h-40 border p-2 rounded"
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-        />
-      </div>
-
-      <button
-        onClick={handleSubmit}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
-        Run / Submit
-      </button>
-
-      {testResult && (
-        <div className="mt-4 p-2 border rounded bg-gray-50">
-          <h2 className="font-bold">Results:</h2>
-          <p>{testResult}</p>
+        <div className="mb-4">
+          <label className="block mb-2 font-semibold text-white">Select Language:</label>
+          <select
+            className="border p-2 rounded"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+          >
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            {/* add more languages if you have skeletons */}
+          </select>
         </div>
-      )}
-    </div>
+
+        <div className="mb-4">
+          <label className="block mb-2 font-semibold text-white">Your Code:</label>
+          <textarea
+            className="w-full h-40 border p-2 rounded"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
+        </div>
+
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Run / Submit
+        </button>
+
+        {testResult && (
+          <div className="mt-4 p-2 border rounded bg-gray-50">
+            <h2 className="font-bold">Results:</h2>
+            <p>{testResult}</p>
+          </div>
+        )}
+      </div>
+    </section>
   );
 }
