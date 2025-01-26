@@ -43,7 +43,7 @@ export default function AboutPage() {
               height={200}
               className="rounded-lg shadow-lg mb-4"
             />
-            <p className="text-lg font-bold text-white">Sergio B</p>
+            <p className="text-lg font-bold text-white">Sergio B.</p>
             <p className="text-gray-300">ESET</p>
           </div>
           <div className="flex flex-col items-center">
@@ -54,7 +54,7 @@ export default function AboutPage() {
               height={200}
               className="rounded-lg shadow-lg mb-4"
             />
-            <p className="text-lg font-bold text-white">Alexander G</p>
+            <p className="text-lg font-bold text-white">Alexander G.</p>
             <p className="text-gray-300">Computer Science</p>
           </div>
           <div className="flex flex-col items-center">
@@ -65,18 +65,18 @@ export default function AboutPage() {
               height={200}
               className="rounded-lg shadow-lg mb-4"
             />
-            <p className="text-lg font-bold text-white">Anders B</p>
+            <p className="text-lg font-bold text-white">Anders B.</p>
             <p className="text-gray-300">Mathematics</p>
           </div>
           <div className="flex flex-col items-center">
             <Image
               src="/Default_pfp.svg.png"
-              alt="Timmothy C"
+              alt="Timothy C"
               width={200}
               height={200}
               className="rounded-lg shadow-lg mb-4"
             />
-            <p className="text-lg font-bold text-white">Timmothy C</p>
+            <p className="text-lg font-bold text-white">Timothy C.</p>
             <p className="text-gray-300">Computer Science</p>
           </div>
         </div>
