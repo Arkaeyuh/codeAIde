@@ -1,7 +1,9 @@
+// lib/auth.ts
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { prisma } from "@/lib/prisma";
+import bcrypt from "bcrypt"; // or similar hashing library
 
-// This is a minimal credentials approach with no real DB check:
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
@@ -11,48 +13,33 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        // 1) In a real app, you'd query your database to verify the user
-        // 2) If valid, return the user object
-        // 3) If invalid, return null
-
-        // Minimal example:
-        if (
-          credentials?.email === "test@example.com" &&
-          credentials?.password === "password123"
-        ) {
-          // Return any user object
-          return {
-            id: "1",
-            name: "Test User",
-            email: "test@example.com",
-          };
+        if (!credentials?.email || !credentials?.password) {
+          return null;
         }
-        // Return null if the user credentials are invalid
-        return null;
+        // 1. Find user by email
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email },
+        });
+        if (!user) return null;
+
+        // 2. Compare passwordHash with hashed password in DB
+        const isValid = await bcrypt.compare(
+          credentials.password,
+          user.passwordHash
+        );
+        if (!isValid) return null;
+
+        // 3. Return user object (stripped down as needed)
+        return {
+          id: user.id,
+          name: user.email,
+          email: user.email,
+        };
       },
     }),
   ],
-  // This is required for encrypting user tokens and sessions
-  secret: process.env.NEXTAUTH_SECRET, 
-
-  // If you're storing sessions in JWT (default), you can define settings here
+  secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
-  },
-
-  // Configure callbacks for customizing session or JWT if needed
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.user = user;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (token.user) {
-        session.user = token.user as any;
-      }
-      return session;
-    },
   },
 };
