@@ -23,7 +23,7 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href="/learn" className="text-white hover:text-yellow-400 text-lg font-poppins transition duration-300 ease-in-out focus:outline-none focus:ring-0 active:text-yellow-400">
+          <Link href="/lessons" className="text-white hover:text-yellow-400 text-lg font-poppins transition duration-300 ease-in-out focus:outline-none focus:ring-0 active:text-yellow-400">
             Learn
           </Link>
         </li>
