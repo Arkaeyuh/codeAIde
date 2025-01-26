@@ -9,7 +9,7 @@ export default function Navbar() {
     <nav className="w-full bg-transparent p-4 shadow-md flex items-center justify-between fixed top-0 left-0 right-0 z-50 backdrop-blur-md">
       {/* Logo or brand name */}
       <div className="flex items-center space-x-2">
-        <Image src="/AILEARNING.png" alt="Logo" width={40} height={40} />
+        <Image src="/CA-removebg-preview.png" alt="Logo" width={40} height={40} />
         <Link href="/" className="text-white font-bold text-2xl font-poppins">
           codeAIde
         </Link>
