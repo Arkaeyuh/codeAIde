@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma"; // your prisma client
 import Link from "next/link";
+import React from 'react';
 
 // This is a server component by default in Next.js 13+ (unless you say "use client")
 export default async function LessonsPage() {
@@ -14,18 +15,20 @@ export default async function LessonsPage() {
   });
 
   return (
-    <div className="max-w-4xl mx-auto mt-8">
-      <h1 className="text-2xl font-bold mb-4">All Lessons</h1>
-      <ul className="space-y-2">
+    <section className="relative flex flex-col items-center justify-center min-h-screen px-6 bg-gradient-to-b from-black to-gray-900">
+      <h2 className="text-3xl font-bold mb-5">All Lessons</h2>
+      <div className="w-full max-w-4xl">
         {lessons.map((lesson) => (
-          <li key={lesson.id} className="p-4 border rounded hover:bg-gray-50">
+          <div key={lesson.id} className="bg-gray-800 p-6 rounded-lg shadow-lg mb-4">
             <Link href={`/lessons/${lesson.id}`}>
-              <span className="font-semibold">{lesson.title}</span>{" "}
-              <span className="text-sm text-gray-600">({lesson.difficulty})</span>
+              <div className="block">
+                <h3 className="text-xl font-semibold mb-2">{lesson.title}</h3>
+                <p className="text-sm text-gray-600">Difficulty: {lesson.difficulty}</p>
+              </div>
             </Link>
-          </li>
+          </div>
         ))}
-      </ul>
-    </div>
+      </div>
+    </section>
   );
 }

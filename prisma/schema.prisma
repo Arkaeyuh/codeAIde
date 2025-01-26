@@ -20,6 +20,8 @@ model Lesson {
   title      String
   content    String
   difficulty String
+  pythonSkeleton  String?
+  javaSkeleton    String?
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
