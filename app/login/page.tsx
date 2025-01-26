@@ -32,23 +32,23 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center h-screen bg-000">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded shadow-md w-full max-w-sm"
       >
-        <h1 className="text-2xl mb-4 font-bold text-center">Login</h1>
+        <h1 className="text-black text-2xl mb-4 font-bold text-center">Login</h1>
         {error && (
           <div className="mb-4 text-red-500 text-sm">
             {error}
           </div>
         )}
         <div className="mb-4">
-          <label className="block mb-1 font-semibold" htmlFor="email">
+          <label className="text-black block mb-1 font-semibold" htmlFor="email">
             Email
           </label>
           <input
-            className="w-full border p-2 rounded"
+            className="text-black w-full border p-2 rounded"
             type="text"
             id="email"
             value={email}
@@ -57,11 +57,11 @@ export default function LoginPage() {
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold" htmlFor="password">
+          <label className="block mb-1 font-semibold text-black" htmlFor="password">
             Password
           </label>
           <input
-            className="w-full border p-2 rounded"
+            className="text-black w-full border p-2 rounded"
             type="password"
             id="password"
             value={password}
@@ -71,7 +71,7 @@ export default function LoginPage() {
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+          className="w-full bg-blue-600 text-white p-2 font-semibold rounded hover:bg-blue-700"
         >
           Sign In
         </button>
