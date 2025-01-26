@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="flex items-center space-x-2">
         <Image src="/AILEARNING.png" alt="Logo" width={40} height={40} />
         <Link href="/" className="text-white font-bold text-2xl font-poppins">
-          CodeAI
+          codeAIde
         </Link>
       </div>
 

@@ -4,6 +4,7 @@ import Image from 'next/image';
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
+      {/* Top Section */}
       <section className="relative flex flex-col md:flex-row items-center justify-center h-screen bg-gradient-to-b from-gray-800">
         <div className="md:w-1/2 flex justify-center">
           <Image
@@ -30,6 +31,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Bottom Section */}
       <section className="flex flex-col items-center justify-center min-h-screen px-6 bg-gradient-to-b from-black to-gray-800">
         <h2 className="text-3xl font-bold mb-5">The Team</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -42,7 +44,7 @@ export default function AboutPage() {
               className="rounded-lg shadow-lg mb-4"
             />
             <p className="text-lg font-bold text-white">Sergio B</p>
-            <p className="text-gray-300">Electronic Systems Engineering Technology</p>
+            <p className="text-gray-300">ESET</p>
           </div>
           <div className="flex flex-col items-center">
             <Image
@@ -74,7 +76,7 @@ export default function AboutPage() {
               height={200}
               className="rounded-lg shadow-lg mb-4"
             />
-            <p className="text-lg font-bold text-white">Timothy C</p>
+            <p className="text-lg font-bold text-white">Timmothy C</p>
             <p className="text-gray-300">Computer Science</p>
           </div>
         </div>

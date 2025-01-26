@@ -6,7 +6,7 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen bg-black text-white">
       {/* Header Section */}
       <section className="relative flex flex-col items-center justify-center h-screen bg-gradient-to-b from-gray-800 to-black">
-        <h1 className="text-4xl font-bold">Welcome to the AI Learning Platform</h1>
+        <h1 className="text-4xl font-bold">Welcome to codeAIde</h1>
         <p className="mt-4 text-gray-400">Scroll for details</p>
         <Link href="/login">
           <button className="mt-8 px-6 py-3 bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600">
@@ -133,9 +133,9 @@ export default function HomePage() {
         <h2 className="text-3xl font-bold mb-5">Frequently Asked Questions</h2>
         <div className="w-full max-w-4xl">
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-4">
-            <h3 className="text-xl font-semibold mb-2">What is the AI Learning Platform?</h3>
+            <h3 className="text-xl font-semibold mb-2">What is codeAIde?</h3>
             <p className="text-gray-400">
-              The AI Learning Platform is a comprehensive tool designed to help you learn coding through interactive tutorials, AI assistance, and community support.
+              codeAIde is a comprehensive tool designed to help you learn coding through interactive tutorials, AI assistance, and community support.
             </p>
           </div>
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-4">
