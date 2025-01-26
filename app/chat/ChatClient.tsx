@@ -26,7 +26,7 @@ export default function ChatClient() {
     <div className="p-4 max-w-lg mx-auto">
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
         <textarea
-          className="border rounded p-2"
+          className="text-black border rounded p-2"
           placeholder="Ask a coding question..."
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
