@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function LoginPage() {                                  
+export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,18 +16,15 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
 
-    // Use next-auth's signIn function
     const result = await signIn("credentials", {
-      redirect: false, // We'll handle redirection manually
+      redirect: false,
       email,
       password,
     });
 
     if (result?.error) {
-      // If credentials are wrong or next-auth responded with an error
       setError("Invalid email or password");
     } else {
-      // If successful, navigate to homepage or chat
       router.push("/learn");
     }
   }
@@ -37,18 +34,18 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex items-center justify-center h-screen bg-000">
+    <div className="flex items-center justify-center min-h-screen bg-black">
       <motion.form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded shadow-md w-full max-w-sm"
+        className="relative bg-white rounded-lg shadow-lg p-8 w-full max-w-md"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-black text-2xl mb-4 font-bold text-center">Login</h1>
+        <h1 className="text-2xl font-bold text-center text-black mb-6">Login</h1>
         {error && (
           <motion.div
-            className="mb-4 text-red-500 text-sm"
+            className="mb-4 text-sm text-red-500"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -57,38 +54,36 @@ export default function LoginPage() {
           </motion.div>
         )}
         <div className="mb-4">
-          <label className="text-black block mb-1 font-semibold" htmlFor="email">
+          <label className="block text-sm font-semibold text-gray-700 mb-1" htmlFor="email">
             Email
           </label>
           <motion.input
-            className="text-black w-full border p-2 rounded"
+            className="text-black w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-600 focus:outline-none transition-all"
             type="text"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="test@example.com"
-            whileFocus={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
+            whileFocus={{ scale: 1.02 }}
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold text-black" htmlFor="password">
+          <label className="block text-sm font-semibold text-gray-700 mb-1" htmlFor="password">
             Password
           </label>
           <motion.input
-            className="text-black w-full border p-2 rounded"
+            className="text-black w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-600 focus:outline-none transition-all"
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="password123"
-            whileFocus={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
+            whileFocus={{ scale: 1.02 }}
           />
         </div>
         <motion.button
           type="submit"
-          className="w-full bg-blue-600 text-white p-2 font-semibold rounded hover:bg-blue-700"
+          className="w-full bg-blue-600 text-white font-semibold py-3 rounded hover:bg-blue-700 transition-all shadow"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -97,7 +92,7 @@ export default function LoginPage() {
         <motion.button
           type="button"
           onClick={handleSignUp}
-          className="w-full bg-gray-600 text-white p-2 font-semibold rounded mt-2 hover:bg-gray-700"
+          className="w-full bg-gray-700 text-white font-semibold py-3 rounded mt-4 hover:bg-gray-800 transition-all shadow"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
