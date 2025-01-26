@@ -4,7 +4,6 @@ import React from 'react';
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
-      {/* Header Section */}
       <section className="relative flex flex-col items-center justify-center h-screen bg-gradient-to-b from-gray-800">
         <h1 className="text-4xl font-bold">Welcome to the AI Learning Platform</h1>
         <p className="mt-4 text-gray-400">Scroll for details</p>
@@ -14,7 +13,6 @@ export default function HomePage() {
           </button>
         </Link>
 
-        {/* Moving Coding Languages */}
         <div className="absolute bottom-0 w-full overflow-hidden">
           <div className="marquee-container">
             <div className="flex animate-marquee space-x-16 text-2xl font-bold text-gray-500">
