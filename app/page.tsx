@@ -4,8 +4,12 @@ import React from 'react';
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
-      {/* Header Section */}
-      <section className="relative flex flex-col items-center justify-center h-screen bg-gradient-to-b from-gray-800 to-black">
+    {/* Header Section */}
+    <section className="relative flex flex-col items-center justify-center h-screen bg-gradient-to-b from-gray-800 to-black overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <div className="accent-shape"></div>
+      </div>
+      <div className="relative z-10 text-center">
         <h1 className="text-4xl font-bold">Welcome to codeAIde</h1>
         <p className="mt-4 text-gray-400">Scroll for details</p>
         <Link href="/login">
@@ -13,7 +17,7 @@ export default function HomePage() {
             Get Started
           </button>
         </Link>
-
+      </div>
         {/* Moving Coding Languages */}
         <div className="absolute bottom-0 w-full overflow-hidden">
           <div className="marquee-container">

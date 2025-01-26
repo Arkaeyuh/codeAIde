@@ -80,3 +80,27 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.accent-shape {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(50px);
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 10s infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -20px);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
