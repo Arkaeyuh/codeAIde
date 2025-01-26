@@ -11,7 +11,7 @@ export default function HomePage() {
       </div>
       <div className="relative z-10 text-center">
         <h1 className="text-4xl font-bold">Welcome to codeAIde</h1>
-        <p className="mt-4 text-gray-400">Scroll for details</p>
+        <p className="mt-4 text-gray-400">Code. Learn. Innovate.</p>
         <Link href="/login">
           <button className="mt-8 px-6 py-3 bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600">
             Get Started
